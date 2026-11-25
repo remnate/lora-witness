@@ -1,0 +1,11 @@
+LoRA Witness implementation, tests and synthetic fixture weights are original.
+The runtime requires NumPy (BSD-3-Clause, with additional notices in its wheel),
+safetensors (Apache-2.0) and threadpoolctl (BSD-3-Clause). Each dependency is
+installed separately and retains its own license and notices.
+
+The optional oracle uses Kohya sd-scripts (Apache-2.0), Diffusers (Apache-2.0),
+PEFT (Apache-2.0), Transformers (Apache-2.0), Accelerate (Apache-2.0), PyTorch
+and torchvision (BSD-style licenses), and the Stability AI SDXL Base UNet
+configuration (model repository marked OpenRAIL++). Oracle setup retrieves
+upstream files at pinned revisions for local use. This distribution contains
+no upstream source, model configuration, or pretrained weights.

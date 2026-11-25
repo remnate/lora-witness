@@ -1,0 +1,25 @@
+{
+  "manifest_sha256": "d9916ab666b496cd470781445525e0d71abca0a92220b83ee15b1cee05c58d5a",
+  "paths_tested": 560,
+  "probe": "first input basis vector; expected first output = sorted source index + 1, or zero",
+  "cohorts": [
+    {
+      "parity": 0,
+      "source_sha256": "94acc45796de4f43bf2cbdda7e326b6364be9eedf4c9911736d2e0e18d08311f",
+      "native_sha256": "623848c507a86d5f011f0ed718361285d4a47917cea71002c062b79b8223642b",
+      "active_per_stack": 280,
+      "untouched_per_stack": 280,
+      "max_sampled_error": 0.0,
+      "signature_map_sha256": "4ad60bc40ab672947aed0de2e2f41e2945aba2a09abeec7b6489bfa6c95d695e"
+    },
+    {
+      "parity": 1,
+      "source_sha256": "45e7bd5d3451801bd0d55553b054e8e862d4552716b49287b0bb2e65bd02e7c1",
+      "native_sha256": "fd7235e6959b8fbb518fb5f6a6da1eea6259b5ebaf4ee29f75303f79cf5c5463",
+      "active_per_stack": 280,
+      "untouched_per_stack": 280,
+      "max_sampled_error": 0.0,
+      "signature_map_sha256": "596449d99786a0efb6db8fac517eae02503d62c9f34ef71c470525eedcbf647a"
+    }
+  ]
+}

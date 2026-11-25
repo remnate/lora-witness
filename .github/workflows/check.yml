@@ -1,0 +1,40 @@
+name: Verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install '.[test]'
+      - run: python -m pytest -q
+      - run: python -m build
+      - run: |
+          python -m venv /tmp/lw-wheel
+          /tmp/lw-wheel/bin/pip install dist/*.whl
+          /tmp/lw-wheel/bin/lora-witness compare examples/synthetic/kohya.safetensors examples/synthetic/native.safetensors --native-unit-scale
+  loader:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.16'
+      - run: python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.8.0+cpu torchvision==0.23.0+cpu
+      - run: python -m pip install -c scripts/oracle-linux-py312.txt '.[oracle]'
+      - run: sh scripts/check-loaders.sh
+      - run: lora-witness compare examples/synthetic/kohya.safetensors oracle-work/converted.safetensors --mode exhaustive --native-unit-scale
+      - name: Check mixed-adapter verdicts and coverage
+        run: |
+          rc=0
+          lora-witness compare oracle-work/zero-source.safetensors oracle-work/collinear-dora.safetensors --native-unit-scale --mode exhaustive --json > dora.json || rc=$?
+          test "$rc" -eq 2
+          cmp dora.json docs/evidence/dora.json
+          rc=0
+          lora-witness compare examples/synthetic/kohya.safetensors examples/synthetic/mixed.safetensors --native-unit-scale --mode exhaustive --json > mixed.json || rc=$?
+          test "$rc" -eq 1
+          cmp mixed.json docs/evidence/mixed.json

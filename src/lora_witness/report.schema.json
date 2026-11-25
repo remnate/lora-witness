@@ -1,0 +1,456 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoRA Witness comparison report",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "component": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "sampled",
+        "exhaustive"
+      ]
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "block_rows": {
+      "type": "integer"
+    },
+    "tolerance_profile": {
+      "type": "string"
+    },
+    "atol": {
+      "type": "number"
+    },
+    "rtol": {
+      "type": "number"
+    },
+    "manifest_sha256": {
+      "type": "string"
+    },
+    "files": {
+      "type": "object",
+      "properties": {
+        "kohya": {
+          "$ref": "#/$defs/artifact"
+        },
+        "native": {
+          "$ref": "#/$defs/artifact"
+        }
+      },
+      "required": [
+        "kohya",
+        "native"
+      ],
+      "additionalProperties": false
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/layer"
+      }
+    },
+    "verdict": {
+      "enum": [
+        "sampled_agreement",
+        "exhaustive_agreement_within_tolerance",
+        "fail",
+        "inconclusive"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "likely_swaps": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "loader_evidence": {
+      "type": "object",
+      "required": [
+        "sd_scripts",
+        "diffusers",
+        "peft",
+        "sdxl_config",
+        "tested_projection_count"
+      ],
+      "properties": {
+        "sd_scripts": {
+          "type": "string"
+        },
+        "diffusers": {
+          "type": "string"
+        },
+        "peft": {
+          "type": "string"
+        },
+        "sdxl_config": {
+          "type": "string"
+        },
+        "tested_projection_count": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "tool_version",
+    "component",
+    "mode",
+    "seed",
+    "block_rows",
+    "tolerance_profile",
+    "atol",
+    "rtol",
+    "manifest_sha256",
+    "files",
+    "layers",
+    "verdict",
+    "reasons",
+    "likely_swaps",
+    "loader_evidence"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_keys": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "parameters": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "keys": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "dtype": {
+                "type": "string"
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": [
+              "dtype",
+              "shape"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "matched_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extra_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unpaired_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ambiguous_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unsupported_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "paired_projections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "compared_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "verified_attachments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "configuration_issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "properties": {
+            "compared_keys": {
+              "type": "integer"
+            },
+            "total_keys": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "compared_parameters": {
+              "type": "integer"
+            },
+            "total_parameters": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "compared_keys",
+            "total_keys",
+            "compared_parameters",
+            "total_parameters"
+          ],
+          "additionalProperties": false
+        },
+        "metadata_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sidecars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unassessed_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "file",
+        "sha256",
+        "raw_keys",
+        "parameters",
+        "keys",
+        "matched_keys",
+        "missing_keys",
+        "extra_keys",
+        "unpaired_keys",
+        "ambiguous_keys",
+        "unsupported_keys",
+        "paired_projections",
+        "compared_keys",
+        "verified_attachments",
+        "errors",
+        "configuration_issues",
+        "coverage",
+        "unassessed_keys"
+      ],
+      "additionalProperties": false
+    },
+    "layer": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "sampled",
+            "exhaustive"
+          ]
+        },
+        "E": {
+          "type": "number"
+        },
+        "M": {
+          "type": "number"
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "relative_frobenius": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "worst_coordinate": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "under_resolution": {
+          "type": "boolean"
+        },
+        "probe": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/probe"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "numerical_mismatch",
+            "agreement",
+            "zero_effect_agreement",
+            "under_resolution"
+          ]
+        },
+        "shape": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "kohya": {
+          "$ref": "#/$defs/factors"
+        },
+        "native": {
+          "$ref": "#/$defs/factors"
+        },
+        "fallback_probe": {
+          "$ref": "#/$defs/probe"
+        },
+        "effect_sha256": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "mode",
+        "E",
+        "M",
+        "threshold",
+        "relative_frobenius",
+        "worst_coordinate",
+        "under_resolution",
+        "probe",
+        "status",
+        "shape",
+        "kohya",
+        "native"
+      ],
+      "additionalProperties": false
+    },
+    "factors": {
+      "type": "object",
+      "properties": {
+        "rank": {
+          "type": "integer"
+        },
+        "scale": {
+          "type": "number"
+        },
+        "dtypes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "rank",
+        "scale",
+        "dtypes"
+      ],
+      "additionalProperties": false
+    },
+    "probe": {
+      "type": "object",
+      "properties": {
+        "rng": {
+          "type": "string"
+        },
+        "derived_seed": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "sha256": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rng",
+        "derived_seed",
+        "shape",
+        "sha256"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

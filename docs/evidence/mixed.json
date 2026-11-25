@@ -1,0 +1,443 @@
+{
+  "schema_version": "1.0",
+  "tool_version": "0.1.0",
+  "mode": "exhaustive",
+  "seed": 0,
+  "block_rows": 64,
+  "tolerance_profile": "fp32-v1",
+  "atol": 1e-10,
+  "rtol": 1e-05,
+  "manifest_sha256": "d9916ab666b496cd470781445525e0d71abca0a92220b83ee15b1cee05c58d5a",
+  "component": "SDXL Base UNet",
+  "loader_evidence": {
+    "sd_scripts": "88ff6b5391e89822d0463df8769591273d0d28b1",
+    "diffusers": "0.43.0",
+    "peft": "0.22.0",
+    "sdxl_config": "462165984030d82259a11f4367a4eed129e94a7b",
+    "tested_projection_count": 560
+  },
+  "files": {
+    "kohya": {
+      "file": "kohya.safetensors",
+      "sha256": "4a89881a364ca3ef9273c334c260778789222526fa25790db82cb8d9c87e980d",
+      "raw_keys": 12,
+      "parameters": 20740,
+      "keys": {
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.alpha": {
+          "shape": [],
+          "dtype": "F32"
+        },
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_down.weight": {
+          "shape": [
+            2,
+            2048
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_up.weight": {
+          "shape": [
+            640,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.alpha": {
+          "shape": [],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_down.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_up.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.alpha": {
+          "shape": [],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_down.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_up.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.alpha": {
+          "shape": [],
+          "dtype": "F32"
+        },
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_down.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_up.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        }
+      },
+      "matched_keys": [
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.alpha",
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_down.weight",
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_up.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.alpha",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_down.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_up.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.alpha",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_down.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_up.weight",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.alpha",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_down.weight",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_up.weight"
+      ],
+      "missing_keys": [],
+      "extra_keys": [],
+      "unpaired_keys": [],
+      "ambiguous_keys": [],
+      "unsupported_keys": [],
+      "paired_projections": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0"
+      ],
+      "compared_keys": [
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.alpha",
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_down.weight",
+        "lora_unet_input_blocks_4_1_transformer_blocks_0_attn2_to_k.lora_up.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.alpha",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_down.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_q.lora_up.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.alpha",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_down.weight",
+        "lora_unet_middle_block_1_transformer_blocks_9_attn1_to_v.lora_up.weight",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.alpha",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_down.weight",
+        "lora_unet_output_blocks_1_1_transformer_blocks_3_attn2_to_out_0.lora_up.weight"
+      ],
+      "verified_attachments": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0"
+      ],
+      "errors": [],
+      "configuration_issues": [],
+      "metadata_fields": [],
+      "sidecars": [],
+      "unassessed_keys": [],
+      "coverage": {
+        "compared_keys": 12,
+        "total_keys": 12,
+        "compared_parameters": 20740,
+        "total_parameters": 20740
+      }
+    },
+    "native": {
+      "file": "mixed.safetensors",
+      "sha256": "00fb00955282ceb6d35202417bfe745ff184dba23f88b75ef6d43817c35ed435",
+      "raw_keys": 9,
+      "parameters": 20737,
+      "keys": {
+        "text_encoder.extra.bias": {
+          "shape": [
+            1
+          ],
+          "dtype": "F32"
+        },
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_A.weight": {
+          "shape": [
+            2,
+            2048
+          ],
+          "dtype": "F32"
+        },
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_B.weight": {
+          "shape": [
+            640,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_A.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_B.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_A.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_B.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        },
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_A.weight": {
+          "shape": [
+            2,
+            1280
+          ],
+          "dtype": "F32"
+        },
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_B.weight": {
+          "shape": [
+            1280,
+            2
+          ],
+          "dtype": "F32"
+        }
+      },
+      "matched_keys": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_A.weight",
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_B.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_A.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_B.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_A.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_B.weight",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_A.weight",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_B.weight"
+      ],
+      "missing_keys": [],
+      "extra_keys": [],
+      "unpaired_keys": [],
+      "ambiguous_keys": [],
+      "unsupported_keys": [
+        "text_encoder.extra.bias"
+      ],
+      "paired_projections": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0"
+      ],
+      "compared_keys": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_A.weight",
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k.lora_B.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_A.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q.lora_B.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_A.weight",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v.lora_B.weight",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_A.weight",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0.lora_B.weight"
+      ],
+      "verified_attachments": [
+        "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q",
+        "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v",
+        "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0"
+      ],
+      "errors": [],
+      "configuration_issues": [],
+      "metadata_fields": [],
+      "sidecars": [],
+      "unassessed_keys": [
+        "text_encoder.extra.bias"
+      ],
+      "coverage": {
+        "compared_keys": 8,
+        "total_keys": 9,
+        "compared_parameters": 20736,
+        "total_parameters": 20737
+      }
+    }
+  },
+  "layers": {
+    "unet.down_blocks.1.attentions.0.transformer_blocks.0.attn2.to_k": {
+      "mode": "exhaustive",
+      "E": 0.0,
+      "M": 3.5,
+      "threshold": 3.5000100000000004e-05,
+      "relative_frobenius": 0.0,
+      "worst_coordinate": [
+        0,
+        0
+      ],
+      "under_resolution": false,
+      "probe": null,
+      "effect_sha256": [
+        "f25cdbfd0b3ea20c733df7c1f2f1b035b058c5c240e6c7d7601e6ca1f2c876ea",
+        "f25cdbfd0b3ea20c733df7c1f2f1b035b058c5c240e6c7d7601e6ca1f2c876ea"
+      ],
+      "status": "agreement",
+      "shape": [
+        640,
+        2048
+      ],
+      "kohya": {
+        "rank": 2,
+        "scale": 0.5,
+        "dtypes": {
+          "alpha": "F32",
+          "A": "F32",
+          "B": "F32"
+        }
+      },
+      "native": {
+        "rank": 2,
+        "scale": 1.0,
+        "dtypes": {
+          "A": "F32",
+          "B": "F32"
+        }
+      }
+    },
+    "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_q": {
+      "mode": "exhaustive",
+      "E": 3.5,
+      "M": 7.0,
+      "threshold": 7.00001e-05,
+      "relative_frobenius": 0.5,
+      "worst_coordinate": [
+        1,
+        2
+      ],
+      "under_resolution": false,
+      "probe": null,
+      "effect_sha256": [
+        "55af9c96f0648d98ada6728f8a04c38faada4f7405f5b59490b245bc7fabc79b",
+        "3dfa7455f53623ee55d8c5ff3951c73f8481d33b50d2e0e97aef3f7280297d76"
+      ],
+      "status": "numerical_mismatch",
+      "shape": [
+        1280,
+        1280
+      ],
+      "kohya": {
+        "rank": 2,
+        "scale": 0.5,
+        "dtypes": {
+          "alpha": "F32",
+          "A": "F32",
+          "B": "F32"
+        }
+      },
+      "native": {
+        "rank": 2,
+        "scale": 1.0,
+        "dtypes": {
+          "A": "F32",
+          "B": "F32"
+        }
+      }
+    },
+    "unet.mid_block.attentions.0.transformer_blocks.9.attn1.to_v": {
+      "mode": "exhaustive",
+      "E": 0.0,
+      "M": 10.5,
+      "threshold": 0.0001050001,
+      "relative_frobenius": 0.0,
+      "worst_coordinate": [
+        0,
+        0
+      ],
+      "under_resolution": false,
+      "probe": null,
+      "effect_sha256": [
+        "dcdc2bc26ffafa4026c6232bf947b9c9d0c8696f31cf4423ca684731de48baef",
+        "dcdc2bc26ffafa4026c6232bf947b9c9d0c8696f31cf4423ca684731de48baef"
+      ],
+      "status": "agreement",
+      "shape": [
+        1280,
+        1280
+      ],
+      "kohya": {
+        "rank": 2,
+        "scale": 0.5,
+        "dtypes": {
+          "alpha": "F32",
+          "A": "F32",
+          "B": "F32"
+        }
+      },
+      "native": {
+        "rank": 2,
+        "scale": 1.0,
+        "dtypes": {
+          "A": "F32",
+          "B": "F32"
+        }
+      }
+    },
+    "unet.up_blocks.0.attentions.1.transformer_blocks.3.attn2.to_out.0": {
+      "mode": "exhaustive",
+      "E": 0.0,
+      "M": 14.0,
+      "threshold": 0.00014000010000000002,
+      "relative_frobenius": 0.0,
+      "worst_coordinate": [
+        0,
+        0
+      ],
+      "under_resolution": false,
+      "probe": null,
+      "effect_sha256": [
+        "0ee92a9a3d4f5ca3797494249d6a172aea1f6907a9e0229a86e98f3ad56d8b93",
+        "0ee92a9a3d4f5ca3797494249d6a172aea1f6907a9e0229a86e98f3ad56d8b93"
+      ],
+      "status": "agreement",
+      "shape": [
+        1280,
+        1280
+      ],
+      "kohya": {
+        "rank": 2,
+        "scale": 0.5,
+        "dtypes": {
+          "alpha": "F32",
+          "A": "F32",
+          "B": "F32"
+        }
+      },
+      "native": {
+        "rank": 2,
+        "scale": 1.0,
+        "dtypes": {
+          "A": "F32",
+          "B": "F32"
+        }
+      }
+    }
+  },
+  "verdict": "fail",
+  "reasons": [
+    "numerical_mismatch",
+    "unsupported_input"
+  ],
+  "likely_swaps": []
+}
